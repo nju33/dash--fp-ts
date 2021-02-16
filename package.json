@@ -1,12 +1,13 @@
 {
-  "name": "fp-ts",
+  "name": "dash--fp-ts",
   "version": "2.9.5",
-  "description": "Functional programming in TypeScript",
+  "description": "fp-ts API docset for Dash",
   "main": "lib/index.js",
   "module": "es6/index.js",
   "typings": "lib/index.d.ts",
   "sideEffects": false,
   "scripts": {
+    "docset-build": "node scripts/create-db.js && node scripts/create-html.js && rm -rf fp-ts.tgz && tar --exclude='.DS_Store' -cvzf fp-ts.tgz fp-ts.docset",
     "lint": "tslint -p .",
     "jest-clear-cache": "jest --clearCache",
     "prettier": "prettier --list-different \"./{src,test,examples,scripts}/**/*.ts\"",
@@ -27,30 +28,36 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gcanti/fp-ts.git"
+    "url": "https://github.com/nju33/dash--fp-ts.git"
   },
   "author": "Giulio Canti <giulio.canti@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gcanti/fp-ts/issues"
+    "url": "https://github.com/nju33/dash--fp-ts/issues"
   },
-  "homepage": "https://github.com/gcanti/fp-ts",
+  "homepage": "https://github.com/nju33/dash--fp-ts",
   "devDependencies": {
     "@types/benchmark": "^1.0.31",
     "@types/glob": "^7.1.3",
     "@types/jest": "22.2.2",
     "@types/node": "^12.6.8",
     "@types/prettier": "1.10.0",
+    "@types/vfile-message": "^2.0.0",
     "benchmark": "2.1.4",
     "docs-ts": "^0.6.2",
     "doctoc": "^1.4.0",
     "dtslint": "github:gcanti/dtslint",
+    "ejs": "^3.1.6",
     "fast-check": "^1.25.1",
     "glob": "^7.1.6",
+    "gray-matter": "^4.0.2",
     "jest": "^26.4.2",
+    "marked": "^2.0.0",
     "mocha": "^5.2.0",
     "prettier": "^2.0.2",
+    "prismjs": "^1.23.0",
     "rimraf": "2.6.2",
+    "sqlite3": "^5.0.2",
     "ts-jest": "^26.3.0",
     "ts-node": "^8.0.2",
     "tslint": "5.11.0",
@@ -67,6 +74,5 @@
     "typescript",
     "algebraic-data-types",
     "functional-programming"
-  ],
-  "dependencies": {}
+  ]
 }
